@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>monitorr.io</id>
+    <version>1.0.2</version>
+    <title>monitorr.io</title>
+    <authors>monitorr.io</authors>
+    <owners />
+    <iconUrl>http://monitorr.s3.amazonaws.com/logo50.png</iconUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>ELMAH error logger for sending errors to monitorr.io. This package includes initial configuration for getting up and running with monitorr.io.</description>
+    <releaseNotes>Initial release.</releaseNotes>
+    <copyright/>
+    <projectUrl>http://monitorr.io</projectUrl>
+    <tags>elmah error logging, asp.net error logging</tags>
+    <dependencies>
+      <dependency id="elmah" version="1.2.2" />
+      <dependency id="elmah.corelibrary" version="1.2.2" />
+      <dependency id="Newtonsoft.Json" version="9.0.1" />
+    </dependencies>
+  </metadata>
+  <files>
+    <file src="Content\web.config.install.xdt" target="Content" />
+    <file src="Content\web.config.uninstall.xdt" target="Content" />
+    <file src="bin\$Configuration$\Monitorr.dll" target="lib\net35\Monitorr.dll"/>
+  </files>
+</package>

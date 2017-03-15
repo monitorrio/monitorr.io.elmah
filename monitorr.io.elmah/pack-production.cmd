@@ -1,0 +1,1 @@
+nuget pack monitorr.io.elmah.nuspec -Prop Configuration=Release
