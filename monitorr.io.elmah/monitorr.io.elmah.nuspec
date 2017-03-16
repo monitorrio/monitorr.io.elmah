@@ -2,7 +2,7 @@
 <package >
   <metadata>
     <id>monitorr.io</id>
-    <version>1.0.2</version>
+    <version>1.0.0</version>
     <title>monitorr.io</title>
     <authors>monitorr.io</authors>
     <owners />
@@ -22,6 +22,6 @@
   <files>
     <file src="Content\web.config.install.xdt" target="Content" />
     <file src="Content\web.config.uninstall.xdt" target="Content" />
-    <file src="bin\$Configuration$\Monitorr.dll" target="lib\net35\Monitorr.dll"/>
+    <file src="bin\$Configuration$\monitorr.io.elmah.dll" target="lib\net35\monitorr.io.elmah.dll"/>
   </files>
 </package>
