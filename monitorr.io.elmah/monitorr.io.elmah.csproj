@@ -58,7 +58,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Detection\BrowserDetection.cs" />
-    <Compile Include="ElmahBucketClient.cs" />
+    <Compile Include="MonitorrClient.cs" />
     <Compile Include="MonitorrHelpers.cs" />
     <Compile Include="ErrorLog.cs" />
     <Compile Include="ErrorModel.cs" />
