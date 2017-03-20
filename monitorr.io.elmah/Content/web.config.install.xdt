@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0"?>
 <configuration xmlns:xdt="http://schemas.microsoft.com/XML-Document-Transform">
   <elmah>
-    <errorLog type="Monitorr.ErrorLog, Monitorr" LogId="" xdt:Transform="InsertIfMissing" />
+    <errorLog type="monitorr.io.elmah.ErrorLog, monitorr.io.elmah" LogId="" xdt:Transform="InsertIfMissing" />
   </elmah>
 </configuration>
