@@ -69,6 +69,7 @@
     <Compile Include="Severity.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Content\web.config.transform" />
     <None Include="Content\web.config.uninstall.xdt" />
     <None Include="Content\web.config.install.xdt" />
     <None Include="monitorr.io.elmah.nuspec" />
@@ -76,6 +77,7 @@
     <None Include="pack-staging.cmd" />
     <None Include="pack-production.cmd" />
     <None Include="packages.config" />
+    <None Include="tools\install.ps1" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="App_Readme\Elmah.txt" />
