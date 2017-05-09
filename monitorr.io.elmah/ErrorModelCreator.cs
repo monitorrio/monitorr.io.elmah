@@ -16,7 +16,7 @@ namespace monitorr.io.elmah
                 Guid = Guid.NewGuid().ToString(),
                 Detail = error.Detail,
                 LogId = logId,
-                Host = error.HostName,
+                Host = Host(error),
                 Type = error.Type,
                 Source = error.Source,
                 Message = error.Message,
@@ -33,7 +33,7 @@ namespace monitorr.io.elmah
                 IsCustom = false
             };
         }
-       
+
         public static ErrorModel Create(Guid logId, HttpContext context,
            Exception exception = null)
         {
@@ -47,7 +47,7 @@ namespace monitorr.io.elmah
                 Type = exception?.GetType().Name,
                 Cookies = Cookies(context),
                 Form = Form(context),
-                Host = context.Request?.UserHostName,
+                Host = Host(context.Request),
                 ServerVariables = ServerVariables(context),
                 StatusCode = context.Response?.StatusCode,
                 QueryString = QueryString(context),
@@ -59,6 +59,17 @@ namespace monitorr.io.elmah
                 Url = Url(context.Request?.ServerVariables),
                 IsCustom = true
             };
+        }
+
+        private static string Host(Error error)
+        {
+            var host = error.ServerVariables.Get("HTTP_HOST");
+            return host ?? "";
+        }
+
+        private static string Host(HttpRequest request)
+        {
+            return request?.Url.GetLeftPart(UriPartial.Authority) ?? "";
         }
 
         private static string Url(NameValueCollection serverVariables)
