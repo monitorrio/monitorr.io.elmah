@@ -16,7 +16,7 @@ namespace monitorr.io.elmah
                 Guid = Guid.NewGuid().ToString(),
                 Detail = error.Detail,
                 LogId = logId,
-                Host = Host(error),
+                Host = Host(error.ServerVariables),
                 Type = error.Type,
                 Source = error.Source,
                 Message = error.Message,
@@ -30,7 +30,8 @@ namespace monitorr.io.elmah
                 Browser = Browser(error.ServerVariables),
                 Severity = GetSeverity(error.StatusCode),
                 Url = Url(error.ServerVariables),
-                IsCustom = false
+                IsCustom = false,
+                Method =  Method(error.ServerVariables)
             };
         }
 
@@ -61,9 +62,16 @@ namespace monitorr.io.elmah
             };
         }
 
-        private static string Host(Error error)
+
+        private static string Method(NameValueCollection serverVariables)
         {
-            var host = error.ServerVariables.Get("HTTP_HOST");
+            var verb = serverVariables.Get("REQUEST_METHOD");
+            return verb ?? "";
+        }
+
+        private static string Host(NameValueCollection serverVariables)
+        {
+            var host = serverVariables.Get("HTTP_HOST");
             return host ?? "";
         }
 
