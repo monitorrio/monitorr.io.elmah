@@ -35,8 +35,8 @@ namespace monitorr.io.elmah
             };
         }
 
-        public static ErrorModel Create(Guid logId, HttpContext context,
-           Exception exception = null)
+        public static ErrorModel Create(Guid logId, HttpContext context, Exception exception = null,
+            IDictionary<string, string> additionalData = null)
         {
             return new ErrorModel
             {
@@ -58,7 +58,8 @@ namespace monitorr.io.elmah
                 User = User(context),
                 Severity = GetSeverity(context.Response?.StatusCode),
                 Url = Url(context.Request?.ServerVariables),
-                IsCustom = true
+                IsCustom = true,
+                CustomData = additionalData
             };
         }
 

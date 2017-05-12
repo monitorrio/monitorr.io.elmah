@@ -20,9 +20,9 @@ if ($newInstall) {
 
 	$objForm.KeyPreview = $True
 	$objForm.Add_KeyDown({if ($_.KeyCode -eq "Enter") 
-	    {$script:x=$objTextBox.Text;$script:y=$objTextBox2.Text;$objForm.Close()}})
+	    {$script:x=$objTextBox.Text;$objForm.Close()}})
 	$objForm.Add_KeyDown({if ($_.KeyCode -eq "Escape") 
-	    {$script:x=$null;y=$null;$objForm.Close()}})
+	    {$script:x=$null;$objForm.Close()}})
 
 	$OKButton = New-Object System.Windows.Forms.Button
 	$OKButton.Location = New-Object System.Drawing.Size(75,150)

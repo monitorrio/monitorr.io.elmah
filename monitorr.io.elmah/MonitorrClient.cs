@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Net;
 using System.Text;
 using System.Web;
@@ -61,11 +62,12 @@ namespace monitorr.io.elmah
             }
         }
 
-        public void Log(Guid logId, HttpContext context, Exception exception = null)
+        public void Log(Guid logId, HttpContext context, Exception exception = null, 
+            IDictionary<string, string> additionalData = null)
         {
             try
             {
-                var errorModel = ErrorModelCreator.Create(logId, context, exception);
+                var errorModel = ErrorModelCreator.Create(logId, context, exception, additionalData);
                 var json = JsonConvert.SerializeObject(errorModel, _serializationSettings);
 
                 _webClient.UploadString(_postUrl, "POST", json);
@@ -81,6 +83,6 @@ namespace monitorr.io.elmah
 
         string Version { get; set; }
 
-        void Log(Guid logId, HttpContext context, Exception exception = null);
+        void Log(Guid logId, HttpContext context, Exception exception = null, IDictionary<string, string> additionalData = null);
     }
 }

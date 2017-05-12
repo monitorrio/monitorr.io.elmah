@@ -25,6 +25,6 @@ namespace monitorr.io.elmah
         public Dictionary<string, string> QueryString { get; set; }
         public Dictionary<string, string> Form { get; set; }
         public Dictionary<string, string> Cookies { get; set; }
-
+        public IDictionary<string, string> CustomData { get; set; }
     }
 }
